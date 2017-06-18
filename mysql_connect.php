@@ -1,6 +1,5 @@
 <?
   //connect to db
-  //$db = mysqli_connect("localhost", "nbussmansql8", "GFKgQl5cZ089AjaL", "nbussmansql8");
   $db = mysqli_connect("localhost", "root", "", "nbussmansql8");
   if(!$db)
   {
