@@ -5,7 +5,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
   include("mysql_connect.php");
 
-  $name = mysql_real_escape_string($_POST["name"]);
+  $name = mysqli_real_escape_string($db, ($_POST["name"]);
   $teilnehmeranzahl = $_POST["teilnehmeranzahl"];
   if (!is_numeric($teilnehmeranzahl))  exit();
 
@@ -30,9 +30,9 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
     if( !($pname == "") || ($panzahl > 0) ) {
       $query = sprintf("INSERT INTO projekte (pid, name, beschreibung, maxAnzahl) VALUES ( '%s', '%s', '%s', '%s')",
         $bodenId,
-        mysql_real_escape_string($pname),
-        mysql_real_escape_string($pbeschreibung),
-        mysql_real_escape_string($panzahl)
+        mysqli_real_escape_string($db, ($pname),
+        mysqli_real_escape_string($db, ($pbeschreibung),
+        mysqli_real_escape_string($db, ($panzahl)
       );
       $eintragen = mysqli_query($db, $query);
     }

@@ -8,11 +8,11 @@
   $pid =  $_POST["pid"];
   if(is_numeric($pid) && is_numeric($userid) && is_numeric($w1) && is_numeric($w1) && is_numeric($w1)){
     $query = sprintf("UPDATE teilnehmer SET `wahl1`='%s' , `wahl2`='%s' , `wahl3`='%s' WHERE pid='%s' AND id='%s'",
-              mysql_real_escape_string($w1),
-              mysql_real_escape_string($w2),
-              mysql_real_escape_string($w3),
-              mysql_real_escape_string($pid),
-              mysql_real_escape_string(strtoupper($userid)));
+              mysqli_real_escape_string($db, ($w1),
+              mysqli_real_escape_string($db, ($w2),
+              mysqli_real_escape_string($db, ($w3),
+              mysqli_real_escape_string($db, ($pid),
+              mysqli_real_escape_string($db, (strtoupper($userid)));
     $eintragen = mysqli_query($db, $query);
     if($eintragen ){
         include("header.php");

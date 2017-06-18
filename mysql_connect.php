@@ -1,6 +1,6 @@
 <?
   //connect to db
-  $db = mysqli_connect("localhost", "root", "", "nbussmansql8");
+  $db = mysqli_connect("localhost", "nbussmansql8", "ajGiecCj3bv6anK1", "nbussmansql8");
   if(!$db)
   {
     exit("Verbindungsfehler: ");//.mysqli_connect_error());

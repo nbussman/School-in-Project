@@ -4,7 +4,7 @@
 
   function w1zugeordnetSchuelerAnz($db,$id){
     $query = sprintf("SELECT count(id) as anzahl FROM teilnehmer WHERE wahl1='%s'",
-            mysql_real_escape_string($id));
+            mysqli_real_escape_string($db, ($id));
     $ergebnis = mysqli_query($db,$query);
     while($row = mysqli_fetch_object($ergebnis))
     {
@@ -29,49 +29,49 @@
   if(is_numeric($pid)){
 
     $query = sprintf("UPDATE teilnehmer SET `aktiv`='0' WHERE pid='%s'",
-              mysql_real_escape_string($pid));
+              mysqli_real_escape_string($db, ($pid));
     $eintragen = mysqli_query($db, $query);
     if($eintragen){
       //alle user sind inaktiv
       // #Zuweisung durchführen
       //1. wahl für alle projekt geben wenn möglich
       $query = sprintf("SELECT * FROM projekte WHERE pid='%s'",
-                mysql_real_escape_string($pid));
+                mysqli_real_escape_string($db, ($pid));
       $ergebnis = mysqli_query($db, $query);
       while($row = mysqli_fetch_object($ergebnis))
       {
         //echo $row->name." (".$row->maxAnzahl.")<br>";
         $queryInner = sprintf("UPDATE teilnehmer SET `projektZugewiesen`='%s' WHERE wahl1='%s' AND projektZugewiesen =0 ORDER BY RAND() LIMIT %s",
-          mysql_real_escape_string($row->id),
-          mysql_real_escape_string($row->id),
-          mysql_real_escape_string($row->maxAnzahl));
+          mysqli_real_escape_string($db, ($row->id),
+          mysqli_real_escape_string($db, ($row->id),
+          mysqli_real_escape_string($db, ($row->maxAnzahl));
         $ergebnisInner = mysqli_query($db, $queryInner);
       }
 
       //2. wahl für alle projekt geben wenn möglich
       $query = sprintf("SELECT * FROM projekte WHERE pid='%s'",
-                mysql_real_escape_string($pid));
+                mysqli_real_escape_string($db, ($pid));
       $ergebnis = mysqli_query($db, $query);
       while($row = mysqli_fetch_object($ergebnis))
       {
         //echo $row->name." (".$row->maxAnzahl.")<br>";
         $queryInner = sprintf("UPDATE teilnehmer SET `projektZugewiesen`='%s' WHERE wahl2='%s' AND projektZugewiesen =0 ORDER BY RAND() LIMIT %s",
-          mysql_real_escape_string($row->id),
-          mysql_real_escape_string($row->id),
-          mysql_real_escape_string($row->maxAnzahl));
+          mysqli_real_escape_string($db, ($row->id),
+          mysqli_real_escape_string($db, ($row->id),
+          mysqli_real_escape_string($db, ($row->maxAnzahl));
         $ergebnisInner = mysqli_query($db, $queryInner);
       }
       //3. wahl für alle projekt geben wenn möglich
       $query = sprintf("SELECT * FROM projekte WHERE pid='%s'",
-                mysql_real_escape_string($pid));
+                mysqli_real_escape_string($db, ($pid));
       $ergebnis = mysqli_query($db, $query);
       while($row = mysqli_fetch_object($ergebnis))
       {
         //echo $row->name." (".$row->maxAnzahl.")<br>";
         $queryInner = sprintf("UPDATE teilnehmer SET `projektZugewiesen`='%s' WHERE wahl3='%s' AND projektZugewiesen =0 ORDER BY RAND() LIMIT %s",
-          mysql_real_escape_string($row->id),
-          mysql_real_escape_string($row->id),
-          mysql_real_escape_string($row->maxAnzahl));
+          mysqli_real_escape_string($db, ($row->id),
+          mysqli_real_escape_string($db, ($row->id),
+          mysqli_real_escape_string($db, ($row->maxAnzahl));
         $ergebnisInner = mysqli_query($db, $queryInner);
       }
 
@@ -111,7 +111,7 @@
               AND wahl1 = p1.id
               AND wahl2 = p2.id
               AND wahl3 = p3.id",
-            mysql_real_escape_string($pid));
+            mysqli_real_escape_string($db, ($pid));
         $ergebnis = mysqli_query($db,$query);
         while($row = mysqli_fetch_object($ergebnis))
         {
