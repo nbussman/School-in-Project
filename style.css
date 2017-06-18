@@ -1,0 +1,102 @@
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+
+.form-signin, .smallbox {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+.dropdown{
+  float: left;
+  margin-left: 10px;
+}
+
+#votebtn{
+  margin: 10px 10px;
+  width:280px;
+}
+
+.projectAdd {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+.qrcode, .qrcode img, .qrcode canvas{
+  width:80px;
+  height:80px;
+}
+.qrcode {
+  float: left;
+  margin: 10px;
+}
+#usernamestb{
+  width:100%;
+}
+#usernamestb p{
+  text-align: : center;
+  margin: 0 10px;
+}
+.box{
+  margin-right: 0;
+  margin-left: 0;
+  background-color: #fff;
+  border-color: #ddd;
+  border-width: 1px;
+  border-radius: 4px 4px 0 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.box h3 {
+  margin-top: 0;
+}
+
+#zugeordnetTabelle{
+  width:100%;
+}
+#zugeordnetTabelle td{
+  height:35px;
+  padding:5px;
+}
+@media print {
+
+  .noprint{
+    display:none;
+  }
+}
